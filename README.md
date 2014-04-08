@@ -1,4 +1,4 @@
-# typedarray-to-buffer [![travis](http://img.shields.io/travis/feross/typedarray-to-buffer.svg)](https://travis-ci.org/feross/typedarray-to-buffer) [![npm](http://img.shields.io/npm/v/typedarray-to-buffer.svg)](https://npmjs.org/package/typedarray-to-buffer) [![gittip](http://img.shields.io/gittip/feross.svg)](https://www.gittip.com/feross/)
+# typedarray-to-buffer [![travis](https://img.shields.io/travis/feross/typedarray-to-buffer.svg)](https://travis-ci.org/feross/typedarray-to-buffer) [![npm](https://img.shields.io/npm/v/typedarray-to-buffer.svg)](https://npmjs.org/package/typedarray-to-buffer) [![gittip](https://img.shields.io/gittip/feross.svg)](https://www.gittip.com/feross/)
 
 #### Convert a typed array to a [Buffer](https://github.com/feross/buffer) without a copy.
 
