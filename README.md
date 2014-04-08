@@ -6,22 +6,23 @@
 
 Say you're using the ['buffer'](https://github.com/feross/buffer) module on npm, or
 [browserify](http://browserify.org/) and you're working with lots of binary data.
-Creating lots of Buffers here and Buffers there...
 
-Unfortunately, sometimes the browser or someone elses API gives you back an
-`ArrayBuffer` or typed array (`Uint8Array`, etc.) and you need to convert it to a
-`Buffer` so you can work with it easily. What do you do?
+Unfortunately, sometimes the browser or someone else's API gives you an `ArrayBuffer`
+or typed array (`Uint8Array`, etc.) to work with and you need to convert it to a
+`Buffer`. What do you do?
 
-Of course: `new Buffer(uint8array)`.
+Of course: `new Buffer(uint8array)`
 
-But, alas, every time you do `new Buffer(uint8array)`, the entire array gets **copied** into
-a new typed array. The `Buffer` constructor does a copy. This is defined by the
-[node docs](http://nodejs.org/api/buffer.html), so it can't be changed. The 'buffer'
-module matches the node API exactly.
+But, alas, every time you do `new Buffer(uint8array)`, the entire array gets **copied into
+a new typed array**. This is expensive. The `Buffer` constructor does a copy; this is
+defined by the [node docs](http://nodejs.org/api/buffer.html), so it can't be easily
+changed and the 'buffer' module matches the node API exactly.
 
 So, what can you do if you're
 [writing a performance critical application](https://github.com/feross/buffer/issues/22)
-and can't afford extra copies for no good reason? *Use this module, of course!*
+and can't afford extra copies for no good reason?
+
+***Use this module, of course!***
 
 ## install
 
