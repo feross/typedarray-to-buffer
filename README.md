@@ -32,7 +32,7 @@ npm install typedarray-to-buffer
 
 ## usage
 
-To convert a typed array to a `Buffer` without a copy, do this:
+To convert a typed array to a `Buffer` **without a copy**, do this:
 
 ```js
 var toBuffer = require('typedarray-to-buffer')
@@ -60,4 +60,4 @@ return it you. So, just always use the return value if you want to support all b
 
 ## license
 
-MIT. Copyright (C) [Feross Aboukhadijeh](http://feross.org), Romain Beauxis, and other contributors.
+MIT. Copyright (C) [Feross Aboukhadijeh](http://feross.org).
