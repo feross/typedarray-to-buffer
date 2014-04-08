@@ -9,6 +9,8 @@ test('convert to buffer from uint8array', function (t) {
     t.deepEqual(arr, new Buffer([1, 2, 3]), 'contents equal')
     t.ok(Buffer.isBuffer(arr), 'is buffer')
     t.equal(arr.readUInt16BE(0), 258)
+  } else {
+    t.pass('browser lacks uint8array support, skip test')
   }
   t.end()
 })
@@ -21,6 +23,8 @@ test('convert to buffer from another array type (uint32array)', function (t) {
     t.deepEqual(arr, new Buffer([1, 2, 3]), 'contents equal')
     t.ok(Buffer.isBuffer(arr), 'is buffer')
     t.equal(arr.readUInt16BE(0), 258)
+  } else {
+    t.pass('browser lacks uint32array support, skip test')
   }
   t.end()
 })
