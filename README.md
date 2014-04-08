@@ -36,7 +36,6 @@ To convert a typed array to a `Buffer` **without a copy**, do this:
 
 ```js
 var toBuffer = require('typedarray-to-buffer')
-var Buffer = require('buffer/').Buffer  // omit this line if you're using `browserify`
 
 var arr = new Uint8Array([1, 2, 3])
 arr = toBuffer(arr)
