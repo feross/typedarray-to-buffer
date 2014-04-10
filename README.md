@@ -8,7 +8,7 @@ Say you're using the ['buffer'](https://github.com/feross/buffer) module on npm,
 [browserify](http://browserify.org/) and you're working with lots of binary data.
 
 Unfortunately, sometimes the browser or someone else's API gives you an `ArrayBuffer`
-or typed array (`Uint8Array`, etc.) to work with and you need to convert it to a
+or typed array (`Uint8Array`, etc.) to work with and you need to convert it to a
 `Buffer`. What do you do?
 
 Of course: `new Buffer(uint8array)`
