@@ -1,7 +1,7 @@
 {
   "name": "typedarray-to-buffer",
   "description": "Convert a typed array to a Buffer without a copy",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": {
     "name": "Feross Aboukhadijeh",
     "email": "feross@feross.org",
