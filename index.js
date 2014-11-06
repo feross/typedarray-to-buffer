@@ -7,13 +7,19 @@
  * `npm install typedarray-to-buffer`
  */
 
+var isTypedArray = require('is-typedarray').strict
+
 module.exports = function (arr) {
   if (typeof Buffer._augment === 'function' && Buffer.TYPED_ARRAY_SUPPORT) {
-    // If `Buffer` is from the `buffer` module and this browser supports typed arrays,
-    // then augment it with all the `Buffer` methods.
-    return Buffer._augment(arr)
-  } else {
-    // Otherwise, fallback to creating a `Buffer` with a copy.
-    return new Buffer(arr)
+    // If `Buffer` is the browser `buffer` module, and the browser supports typed arrays,
+    // then avoid a copy.
+    if (arr instanceof Uint8Array) {
+      return Buffer._augment(arr)
+    } else if (isTypedArray(arr)) {
+      return Buffer._augment(new Uint8Array(arr))
+    }
   }
+
+  // Otherwise, fallback to creating a `Buffer` with a copy.
+  return new Buffer(arr)
 }

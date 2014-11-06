@@ -10,7 +10,9 @@
   "bugs": {
     "url": "https://github.com/feross/typedarray-to-buffer/issues"
   },
-  "dependencies": {},
+  "dependencies": {
+    "is-typedarray": "0.0.0"
+  },
   "devDependencies": {
     "tape": "2.x"
   },
