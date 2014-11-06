@@ -2,15 +2,15 @@
 
 #### Convert a typed array to a [Buffer](https://github.com/feross/buffer) without a copy.
 
-[![testling][testling-image]][testling-url]
+[![saucelabs][saucelabs-image]][saucelabs-url]
 
 [travis-image]: https://img.shields.io/travis/feross/typedarray-to-buffer.svg?style=flat
 [travis-url]: https://travis-ci.org/feross/typedarray-to-buffer
 [npm-image]: https://img.shields.io/npm/v/typedarray-to-buffer.svg?style=flat
 [npm-url]: https://npmjs.org/package/typedarray-to-buffer
 [downloads-image]: https://img.shields.io/npm/dm/typedarray-to-buffer.svg?style=flat
-[testling-image]: https://ci.testling.com/feross/typedarray-to-buffer.png
-[testling-url]: https://ci.testling.com/feross/typedarray-to-buffer
+[saucelabs-image]: https://saucelabs.com/browser-matrix/typedarray-to-buffer.svg
+[saucelabs-url]: https://saucelabs.com/u/typedarray-to-buffer
 
 Say you're using the ['buffer'](https://github.com/feross/buffer) module on npm, or
 [browserify](http://browserify.org/) and you're working with lots of binary data.

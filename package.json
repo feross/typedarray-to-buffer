@@ -14,7 +14,8 @@
     "is-typedarray": "0.0.0"
   },
   "devDependencies": {
-    "tape": "2.x"
+    "tape": "2.x",
+    "zuul": "^1.13.0"
   },
   "homepage": "http://feross.org",
   "keywords": [
@@ -40,18 +41,12 @@
     "url": "git://github.com/feross/typedarray-to-buffer.git"
   },
   "scripts": {
-    "test": "tape test/*.js"
+    "test": "npm run test-node && npm run test-browser",
+    "test-browser": "zuul -- test/*.js",
+    "test-browser-local": "zuul --local -- test/*.js",
+    "test-node": "tape test/*.js"
   },
   "testling": {
-    "files": "test/*.js",
-    "browsers": [
-      "ie/6..latest",
-      "chrome/4..latest",
-      "firefox/3..latest",
-      "safari/5.1..latest",
-      "opera/11.0..latest",
-      "iphone/6",
-      "ipad/6"
-    ]
+    "files": "test/*.js"
   }
 }
