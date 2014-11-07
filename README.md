@@ -55,10 +55,16 @@ arr.readUInt16BE(0)  // 258
 
 ## how it works
 
-If the browser supports typed arrays, then `toBuffer` will **augment the Uint8Array** you
-pass in with the `Buffer` methods and return it. See
-[how does Buffer work?](https://github.com/feross/buffer#how-does-it-work) for more about
-how augmentation works.
+If the browser supports typed arrays, then `toBuffer` will **augment the typed array** you
+pass in with the `Buffer` methods and return it. See [how does Buffer
+work?](https://github.com/feross/buffer#how-does-it-work) for more about how augmentation
+works.
+
+This module uses the typed array's underlying `ArrayBuffer` to back the new `Buffer`. This
+respects the "view" on the `ArrayBuffer`, i.e. `byteOffset` and `byteLength`. In other
+words, if you do `toBuffer(new Uint32Array([1, 2, 3]))`, then the new `Buffer` will
+contain `[1, 0, 0, 0, 2, 0, 0, 0, 3, 0, 0, 0]`, **not** `[1, 2, 3]`. And it still doesn't
+require a copy.
 
 If the browser doesn't support typed arrays, then `toBuffer` will create a new `Buffer`
 object, copy the data into it, and return it. There's no simple performance optimization

@@ -10,16 +10,22 @@
 var isTypedArray = require('is-typedarray').strict
 
 module.exports = function (arr) {
-  if (typeof Buffer._augment === 'function' && Buffer.TYPED_ARRAY_SUPPORT) {
-    // If `Buffer` is the browser `buffer` module, and the browser supports typed arrays,
-    // then avoid a copy.
-    if (arr instanceof Uint8Array) {
-      return Buffer._augment(arr)
-    } else if (isTypedArray(arr)) {
-      return Buffer._augment(new Uint8Array(arr))
-    }
-  }
+  // If `Buffer` is the browser `buffer` module, and the browser supports typed arrays,
+  // then avoid a copy. Otherwise, create a `Buffer` with a copy.
+  var constructor = (typeof Buffer._augment === 'function' && Buffer.TYPED_ARRAY_SUPPORT)
+    ? Buffer._augment
+    : function (arr) { return new Buffer(arr) }
 
-  // Otherwise, fallback to creating a `Buffer` with a copy.
-  return new Buffer(arr)
+  if (arr instanceof Uint8Array) {
+    return constructor(arr)
+  } else if (arr instanceof ArrayBuffer) {
+    return constructor(new Uint8Array(arr))
+  } else if (isTypedArray(arr)) {
+    // Use the typed array's underlying ArrayBuffer to back new Buffer. This respects
+    // the "view" on the ArrayBuffer, i.e. byteOffset and byteLength. No copy.
+    return constructor(new Uint8Array(arr.buffer, arr.byteOffset, arr.byteLength))
+  } else {
+    // Unsupported type, just pass it through to the `Buffer` constructor.
+    return new Buffer(arr)
+  }
 }
