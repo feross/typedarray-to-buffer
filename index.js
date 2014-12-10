@@ -12,7 +12,7 @@ var isTypedArray = require('is-typedarray').strict
 module.exports = function (arr) {
   // If `Buffer` is the browser `buffer` module, and the browser supports typed arrays,
   // then avoid a copy. Otherwise, create a `Buffer` with a copy.
-  var constructor = (typeof Buffer._augment === 'function' && Buffer.TYPED_ARRAY_SUPPORT)
+  var constructor = Buffer.TYPED_ARRAY_SUPPORT
     ? Buffer._augment
     : function (arr) { return new Buffer(arr) }
 
