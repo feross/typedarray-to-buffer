@@ -14,6 +14,7 @@
     "is-typedarray": "0.0.0"
   },
   "devDependencies": {
+    "standard": "^3.8.0",
     "tape": "^4.0.0",
     "zuul": "^3.0.0"
   },
@@ -41,7 +42,7 @@
     "url": "git://github.com/feross/typedarray-to-buffer.git"
   },
   "scripts": {
-    "test": "npm run test-node && npm run test-browser",
+    "test": "standard && npm run test-node && npm run test-browser",
     "test-browser": "zuul -- test/*.js",
     "test-browser-local": "zuul --local -- test/*.js",
     "test-node": "tape test/*.js"
