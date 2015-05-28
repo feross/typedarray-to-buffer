@@ -11,7 +11,7 @@
     "url": "https://github.com/feross/typedarray-to-buffer/issues"
   },
   "dependencies": {
-    "is-typedarray": "0.0.0"
+    "is-typedarray": "^1.0.0"
   },
   "devDependencies": {
     "standard": "^3.8.0",
