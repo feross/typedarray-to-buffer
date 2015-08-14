@@ -28,7 +28,6 @@ test('convert to buffer from another arrayview type (Uint32Array)', function (t)
     t.equal(arr.readUInt32LE(4), 2)
     t.equal(arr.readUInt32LE(8), 3)
     t.equal(arr instanceof Uint8Array, !!Buffer.TYPED_ARRAY_SUPPORT)
-
   } else {
     t.pass('browser lacks Uint32Array support, skip test')
   }
@@ -44,7 +43,6 @@ test('convert to buffer from ArrayBuffer', function (t) {
     t.ok(Buffer.isBuffer(arr), 'is buffer')
     t.equal(arr.readUInt32LE(0), 2)
     t.equal(arr instanceof Uint8Array, !!Buffer.TYPED_ARRAY_SUPPORT)
-
   } else {
     t.pass('browser lacks ArrayBuffer support, skip test')
   }
