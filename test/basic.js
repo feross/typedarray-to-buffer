@@ -18,7 +18,7 @@ test('convert to buffer from Uint8Array', function (t) {
 })
 
 test('convert to buffer from another arrayview type (Uint32Array)', function (t) {
-  if (typeof Uint32Array !== 'undefined') {
+  if (typeof Uint32Array !== 'undefined' && Buffer.TYPED_ARRAY_SUPPORT !== false) {
     var arr = new Uint32Array([1, 2, 3])
     arr = toBuffer(arr)
 
@@ -27,7 +27,7 @@ test('convert to buffer from another arrayview type (Uint32Array)', function (t)
     t.equal(arr.readUInt32LE(0), 1)
     t.equal(arr.readUInt32LE(4), 2)
     t.equal(arr.readUInt32LE(8), 3)
-    t.equal(arr instanceof Uint8Array, !!Buffer.TYPED_ARRAY_SUPPORT)
+    t.equal(arr instanceof Uint8Array, true)
   } else {
     t.pass('browser lacks Uint32Array support, skip test')
   }
@@ -35,14 +35,14 @@ test('convert to buffer from another arrayview type (Uint32Array)', function (t)
 })
 
 test('convert to buffer from ArrayBuffer', function (t) {
-  if (typeof Uint32Array !== 'undefined') {
+  if (typeof Uint32Array !== 'undefined' && Buffer.TYPED_ARRAY_SUPPORT !== false) {
     var arr = new Uint32Array([1, 2, 3]).subarray(1, 2)
     arr = toBuffer(arr)
 
     t.deepEqual(arr, new Buffer([2, 0, 0, 0]), 'contents equal')
     t.ok(Buffer.isBuffer(arr), 'is buffer')
     t.equal(arr.readUInt32LE(0), 2)
-    t.equal(arr instanceof Uint8Array, !!Buffer.TYPED_ARRAY_SUPPORT)
+    t.equal(arr instanceof Uint8Array, true)
   } else {
     t.pass('browser lacks ArrayBuffer support, skip test')
   }
