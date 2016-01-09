@@ -6,6 +6,7 @@
  *
  * `npm install typedarray-to-buffer`
  */
+ /* eslint-disable no-proto */
 
 var isTypedArray = require('is-typedarray').strict
 
@@ -13,7 +14,10 @@ module.exports = function (arr) {
   // If `Buffer` is the browser `buffer` module, and the browser supports typed arrays,
   // then avoid a copy. Otherwise, create a `Buffer` with a copy.
   var constructor = Buffer.TYPED_ARRAY_SUPPORT
-    ? Buffer._augment
+    ? function (arr) {
+      arr.__proto__ = Buffer.prototype
+      return arr
+    }
     : function (arr) { return new Buffer(arr) }
 
   if (arr instanceof Uint8Array) {
