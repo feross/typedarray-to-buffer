@@ -6,30 +6,20 @@
  *
  * `npm install typedarray-to-buffer`
  */
- /* eslint-disable no-proto */
 
 var isTypedArray = require('is-typedarray').strict
 
-module.exports = function (arr) {
-  // If `Buffer` is the browser `buffer` module, and the browser supports typed arrays,
-  // then avoid a copy. Otherwise, create a `Buffer` with a copy.
-  var constructor = Buffer.TYPED_ARRAY_SUPPORT
-    ? function (arr) {
-      arr.__proto__ = Buffer.prototype
-      return arr
+module.exports = function typedarrayToBuffer (arr) {
+  if (isTypedArray(arr)) {
+    // To avoid a copy, use the typed array's underlying ArrayBuffer to back new Buffer
+    var buf = new Buffer(arr.buffer)
+    if (arr.byteOffset !== 0 || arr.byteLength !== arr.buffer.byteLength) {
+      // Respect the "view", i.e. byteOffset and byteLength, without doing a copy
+      buf = buf.slice(arr.byteOffset, arr.byteOffset + arr.byteLength)
     }
-    : function (arr) { return new Buffer(arr) }
-
-  if (arr instanceof Uint8Array) {
-    return constructor(arr)
-  } else if (arr instanceof ArrayBuffer) {
-    return constructor(new Uint8Array(arr))
-  } else if (isTypedArray(arr)) {
-    // Use the typed array's underlying ArrayBuffer to back new Buffer. This respects
-    // the "view" on the ArrayBuffer, i.e. byteOffset and byteLength. No copy.
-    return constructor(new Uint8Array(arr.buffer, arr.byteOffset, arr.byteLength))
+    return buf
   } else {
-    // Unsupported type, just pass it through to the `Buffer` constructor.
+    // Pass through all other types to the `Buffer` constructor
     return new Buffer(arr)
   }
 }

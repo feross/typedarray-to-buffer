@@ -4,20 +4,19 @@
 
 [![saucelabs][saucelabs-image]][saucelabs-url]
 
-[travis-image]: https://img.shields.io/travis/feross/typedarray-to-buffer/master.svg?style=flat
+[travis-image]: https://img.shields.io/travis/feross/typedarray-to-buffer/master.svg
 [travis-url]: https://travis-ci.org/feross/typedarray-to-buffer
-[npm-image]: https://img.shields.io/npm/v/typedarray-to-buffer.svg?style=flat
+[npm-image]: https://img.shields.io/npm/v/typedarray-to-buffer.svg
 [npm-url]: https://npmjs.org/package/typedarray-to-buffer
-[downloads-image]: https://img.shields.io/npm/dm/typedarray-to-buffer.svg?style=flat
+[downloads-image]: https://img.shields.io/npm/dm/typedarray-to-buffer.svg
 [saucelabs-image]: https://saucelabs.com/browser-matrix/typedarray-to-buffer.svg
 [saucelabs-url]: https://saucelabs.com/u/typedarray-to-buffer
 
 Say you're using the ['buffer'](https://github.com/feross/buffer) module on npm, or
 [browserify](http://browserify.org/) and you're working with lots of binary data.
 
-Unfortunately, sometimes the browser or someone else's API gives you an `ArrayBuffer`
-or a typed array like `Uint8Array` to work with and you need to convert it to a
-`Buffer`. What do you do?
+Unfortunately, sometimes the browser or someone else's API gives you a typed array like
+`Uint8Array` to work with and you need to convert it to a `Buffer`. What do you do?
 
 Of course: `new Buffer(uint8array)`
 
@@ -30,6 +29,10 @@ So, how can we avoid this expensive copy in
 [performance critical applications](https://github.com/feross/buffer/issues/22)?
 
 ***Simply use this module, of course!***
+
+If you have an `ArrayBuffer`, you don't need this module, because
+`new Buffer(arrayBuffer)`
+[is already efficient](https://nodejs.org/api/buffer.html#buffer_new_buffer_arraybuffer).
 
 ## install
 
