@@ -13,7 +13,7 @@ module.exports = function typedarrayToBuffer (arr) {
   if (isTypedArray(arr)) {
     // To avoid a copy, use the typed array's underlying ArrayBuffer to back new Buffer
     var buf = new Buffer(arr.buffer)
-    if (arr.byteOffset !== 0 || arr.byteLength !== arr.buffer.byteLength) {
+    if (arr.byteLength !== arr.buffer.byteLength) {
       // Respect the "view", i.e. byteOffset and byteLength, without doing a copy
       buf = buf.slice(arr.byteOffset, arr.byteOffset + arr.byteLength)
     }
