@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "standard": "^6.0.4",
-    "tape": "^4.0.0",
+    "tape": "^4.5.1",
     "zuul": "^3.0.0"
   },
   "homepage": "http://feross.org",
