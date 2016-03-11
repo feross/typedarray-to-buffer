@@ -10,7 +10,7 @@ browsers:
     version: latest
   - name: ie
     version: latest
-  - name: opera
-    version: latest
   - name: android
+    version: latest
+  - name: iphone
     version: latest
