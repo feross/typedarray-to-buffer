@@ -18,9 +18,9 @@ Say you're using the ['buffer'](https://github.com/feross/buffer) module on npm,
 Unfortunately, sometimes the browser or someone else's API gives you a typed array like
 `Uint8Array` to work with and you need to convert it to a `Buffer`. What do you do?
 
-Of course: `new Buffer(uint8array)`
+Of course: `Buffer.from(uint8array)`
 
-But, alas, every time you do `new Buffer(uint8array)` **the entire array gets copied**.
+But, alas, every time you do `Buffer.from(uint8array)` **the entire array gets copied**.
 The `Buffer` constructor does a copy; this is
 defined by the [node docs](http://nodejs.org/api/buffer.html) and the 'buffer' module
 matches the node API exactly.
@@ -31,7 +31,7 @@ So, how can we avoid this expensive copy in
 ***Simply use this module, of course!***
 
 If you have an `ArrayBuffer`, you don't need this module, because
-`new Buffer(arrayBuffer)`
+`Buffer.from(arrayBuffer)`
 [is already efficient](https://nodejs.org/api/buffer.html#buffer_new_buffer_arraybuffer).
 
 ## install
