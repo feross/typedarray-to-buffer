@@ -73,7 +73,7 @@ If the browser doesn't support typed arrays, then `toBuffer` will create a new `
 object, copy the data into it, and return it. There's no simple performance optimization
 we can do for old browsers. Oh well.
 
-If this module is used in node, then it will just call `new Buffer`. This is just for
+If this module is used in node, then it will just call `Buffer.from`. This is just for
 the convenience of modules that work in both node and the browser.
 
 ## license
