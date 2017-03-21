@@ -1,14 +1,18 @@
-# typedarray-to-buffer [![travis][travis-image]][travis-url] [![npm][npm-image]][npm-url] [![downloads][downloads-image]][npm-url]
-
-#### Convert a typed array to a [Buffer](https://github.com/feross/buffer) without a copy.
-
-[![saucelabs][saucelabs-image]][saucelabs-url]
+# typedarray-to-buffer [![travis][travis-image]][travis-url] [![npm][npm-image]][npm-url] [![downloads][downloads-image]][downloads-url] [![javascript style guide][standard-image]][standard-url]
 
 [travis-image]: https://img.shields.io/travis/feross/typedarray-to-buffer/master.svg
 [travis-url]: https://travis-ci.org/feross/typedarray-to-buffer
 [npm-image]: https://img.shields.io/npm/v/typedarray-to-buffer.svg
 [npm-url]: https://npmjs.org/package/typedarray-to-buffer
 [downloads-image]: https://img.shields.io/npm/dm/typedarray-to-buffer.svg
+[downloads-url]: https://npmjs.org/package/typedarray-to-buffer
+[standard-image]: https://img.shields.io/badge/code_style-standard-brightgreen.svg
+[standard-url]: https://standardjs.com
+
+#### Convert a typed array to a [Buffer](https://github.com/feross/buffer) without a copy.
+
+[![saucelabs][saucelabs-image]][saucelabs-url]
+
 [saucelabs-image]: https://saucelabs.com/browser-matrix/typedarray-to-buffer.svg
 [saucelabs-url]: https://saucelabs.com/u/typedarray-to-buffer
 
