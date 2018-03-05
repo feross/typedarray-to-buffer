@@ -1,7 +1,7 @@
 /**
  * Convert a typed array to a Buffer without a copy
  *
- * Author:   Feross Aboukhadijeh <feross@feross.org> <http://feross.org>
+ * Author:   Feross Aboukhadijeh <https://feross.org>
  * License:  MIT
  *
  * `npm install typedarray-to-buffer`
