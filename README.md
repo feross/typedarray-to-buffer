@@ -36,7 +36,7 @@ So, how can we avoid this expensive copy in
 
 If you have an `ArrayBuffer`, you don't need this module, because
 `Buffer.from(arrayBuffer)`
-[is already efficient](https://nodejs.org/api/buffer.html#buffer_new_buffer_arraybuffer).
+[is already efficient](https://nodejs.org/api/buffer.html#buffer_class_method_buffer_from_arraybuffer_byteoffset_length).
 
 ## install
 
