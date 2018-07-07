@@ -14,7 +14,7 @@
     "is-typedarray": "^1.0.0"
   },
   "devDependencies": {
-    "airtap": "0.0.7",
+    "airtap": "0.1.0",
     "standard": "*",
     "tape": "^4.0.0"
   },
