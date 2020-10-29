@@ -1,9 +1,9 @@
-var test = require('tape')
-var toBuffer = require('../')
+const test = require('tape')
+const toBuffer = require('../')
 
 test('convert to buffer from Uint8Array', function (t) {
   if (typeof Uint8Array !== 'undefined') {
-    var arr = new Uint8Array([1, 2, 3])
+    let arr = new Uint8Array([1, 2, 3])
     arr = toBuffer(arr)
 
     t.deepEqual(arr, Buffer.from([1, 2, 3]), 'contents equal')
@@ -19,7 +19,7 @@ test('convert to buffer from Uint8Array', function (t) {
 
 test('convert to buffer from another arrayview type (Uint32Array)', function (t) {
   if (typeof Uint32Array !== 'undefined' && Buffer.TYPED_ARRAY_SUPPORT !== false) {
-    var arr = new Uint32Array([1, 2, 3])
+    let arr = new Uint32Array([1, 2, 3])
     arr = toBuffer(arr)
 
     t.deepEqual(arr, Buffer.from([1, 0, 0, 0, 2, 0, 0, 0, 3, 0, 0, 0]), 'contents equal')
@@ -36,7 +36,7 @@ test('convert to buffer from another arrayview type (Uint32Array)', function (t)
 
 test('convert to buffer from ArrayBuffer', function (t) {
   if (typeof Uint32Array !== 'undefined' && Buffer.TYPED_ARRAY_SUPPORT !== false) {
-    var arr = new Uint32Array([1, 2, 3]).subarray(1, 2)
+    let arr = new Uint32Array([1, 2, 3]).subarray(1, 2)
     arr = toBuffer(arr)
 
     t.deepEqual(arr, Buffer.from([2, 0, 0, 0]), 'contents equal')
