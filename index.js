@@ -1,3 +1,4 @@
+/*! typedarray-to-buffer. MIT License. Feross Aboukhadijeh <https://feross.org/opensource> */
 /**
  * Convert a typed array to a Buffer without a copy
  *
