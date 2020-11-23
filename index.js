@@ -7,19 +7,11 @@
  * `npm install typedarray-to-buffer`
  */
 
-const isTypedArray = require('is-typedarray').strict
-
 module.exports = function typedarrayToBuffer (arr) {
-  if (isTypedArray(arr)) {
-    // To avoid a copy, use the typed array's underlying ArrayBuffer to back new Buffer
-    let buf = Buffer.from(arr.buffer)
-    if (arr.byteLength !== arr.buffer.byteLength) {
-      // Respect the "view", i.e. byteOffset and byteLength, without doing a copy
-      buf = buf.slice(arr.byteOffset, arr.byteOffset + arr.byteLength)
-    }
-    return buf
-  } else {
+  return ArrayBuffer.isView(arr)
+    // To avoid a copy, use the typed array's underlying ArrayBuffer to back
+    // new Buffer, respecting the "view", i.e. byteOffset and byteLength
+    ? Buffer.from(arr.buffer, arr.byteOffset, arr.byteLength)
     // Pass through all other types to `Buffer.from`
-    return Buffer.from(arr)
-  }
+    : Buffer.from(arr)
 }
